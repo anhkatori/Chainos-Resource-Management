@@ -17,13 +17,14 @@
     <!-- Bootstrap -->
     <link href="{{asset('assets/css/vendor/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="{{asset('assets/css/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet"> 
+    <link href="{{asset('assets/css/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
 {{--<!--    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">-->--}}
 {{--<!--    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />-->--}}
     <link href="{{asset('assets/css/vendor/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/js/vendor/mmenu/css/jquery.mmenu.all.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/vendor/bootstrap-checkbox.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/da_custom.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/page.css')}}" rel="stylesheet">
 {{--    <link href="{{asset('assets/css/vendor/bootstrap/bootstrap-dropdown-multilevel.css')}}" rel="stylesheet">--}}
 {{--<!--    <link href="{{asset('assets/js/vendor/rickshaw/css/rickshaw.min.css')}}" rel="stylesheet">-->--}}
 {{--    <link href="{{asset('assets/js/vendor/morris/css/morris.css')}}" rel="stylesheet">--}}
@@ -63,7 +64,7 @@
 <div id="wrap">
     <!-- Make page fluid -->
     <div class="row">
-        
+
         <!-- Fixed navbar -->
     @include('element.sidebar')
     <!-- Fixed navbar end -->

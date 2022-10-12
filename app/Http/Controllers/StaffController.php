@@ -8,6 +8,6 @@ class StaffController extends Controller
 {
     //
     public function index() {
-        return view('auth.staff.index');
+        return view('admin.staff.index');
     }
 }
