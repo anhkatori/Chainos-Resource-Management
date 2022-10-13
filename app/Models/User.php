@@ -41,10 +41,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function is_email($email)	{
-		if (filter_var($email, FILTER_VALIDATE_EMAIL))
-		    return true;
-		else
-		    return false;
-	}
 }
