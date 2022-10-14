@@ -61,3 +61,7 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'], function () {
         });
     });
 });
+
+Route::get('/admin/Dashboard',function(){
+    return view('admin.dashboard.index');
+});

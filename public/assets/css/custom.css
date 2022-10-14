@@ -995,6 +995,11 @@ select.form-control {
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
 }
 
+.nav-header .banner .banner-icon {
+    margin-left: 30px;
+}
+
+
 .nav-header .toolbar .user {
     display: flex;
     flex-direction: row;
@@ -1404,3 +1409,125 @@ select.form-control {
     order: 0;
     flex-grow: 0;
 }
+
+#content .container {
+    width: 100%;
+    padding-right: 18px;
+    padding-left: 18px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#content .container .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -7.5px;
+    margin-left: -7.5px;
+}
+
+#content .container .row .box {
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid #E6EBF1;
+    border-radius: 12px;
+}
+
+#content .container .row .box>.statistical {
+    padding: 28px;
+}
+
+#content .container .row .box>.icon {
+    position: absolute;
+    border-radius: 50%;
+    left: 75%;
+    top: 29%;
+    background-color: rgba(62, 121, 247, 0.2);
+    width: 50px;
+    height: 50px;
+    
+}
+
+#content .container .row .box>.icon>svg {
+    position: absolute;
+    left: 23.25%;
+    right: 10.25%;
+    top: 23.25%;
+    bottom: 10.25%;
+}
+
+#content .container .row .line-chart, #content .container .row .chart-bar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    
+}
+
+#content .container .row .line-chart .chart-banner {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding: 1.75rem 1.25rem;
+    position: relative;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+
+#content .container .row .line-chart .chart-banner select, #content .container .row .chart-bar .chart-banner select {
+    border: 1px solid #E6EBF1;
+    border-radius: 12px;
+    padding: 10px;
+    width: 120px;
+    height: 40px;
+}
+
+#content .container .row .line-chart .chart-banner .list-note, #content .container .row .chart-bar .chart-banner .list-note {
+    display: flex;
+    align-items: center;
+}
+
+#content .container .row .line-chart .chart-banner .list-note .note, #content .container .row .chart-bar .chart-banner .list-note .note {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 9px;
+}
+
+#content .container .row .chart-bar .chart-banner {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding: 1.75rem 1.25rem;
+    position: relative;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+#content .container .row .chart-bar .chart-banner .dropdown {
+    display: flex;
+}
+
+#content .container .row .chart-bar .chart-banner .dropdown .list-project {
+    margin-right: 20px;
+}
+
+#content .container .row .chart-bar .title-chart, #content .container .row .line-chart .title-chart {
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+}
+
+

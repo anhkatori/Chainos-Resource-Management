@@ -49,7 +49,8 @@
 
     <!-- jQuery -->
     <script src="{{asset('assets/js/vendor/jquery/dist/jquery.min.js')}}"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="{{ asset('assets/js/chartjs/cost.js') }}"></script>
     <script src="{{asset('assets/js/multi-select.min.js')}}"></script>
     <!-- Custom Theme Style -->
     <link href="{{asset('assets/css/multi-select/multi-select-menu.css')}}" rel="stylesheet">
