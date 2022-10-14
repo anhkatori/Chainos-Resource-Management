@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="page-title">
+        {{ Form::open(['url' => '/admin/project', 'method' => 'GET', 'id' => 'form-project']) }}
         <div class="header">
             <select name="value_page" id="value_page">
                 <option value="10">10/page</option>
@@ -10,13 +11,14 @@
                 <option value="25">25/page</option>
             </select>
             <div class="search">
-                <input type="text">
-                <button class="button-search"><a href="#">Tìm kiếm</a></button>
+                <input type="text" value="{{ $searchKey }}" name="searchKey" id="searchKey">
+                <button class="button-search" id="button-search">Tìm kiếm</button>
                 <button class="filter">
                     <i class="fa fa-filter" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
+        {{ Form::close() }}
         <div class="page_action">
             <button class="delete_button" id="delete_button">Xóa</button>
             <button class="add" type="button" data-toggle="modal" data-target="#project">Thêm dự án</button>
@@ -42,118 +44,45 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="content">
-                        <td class=""><input type="checkbox" id="checkbox" onclick="CheckboxFunction()"> </td>
-                        <td class=""> 1 </td>
-                        <td class="">Anh</td>
-                        <td class="">Gà</td>
-                        <td class="">10 000</td>
-                        <td class="">01-01-2022</td>
-                        <td class="">Gà</td>
-                        <td class="">Gà</td>
-                        <td class="">Gà</td>
-                        <td class="">Gà</td>
-                        <td class="">Gà</td>
-                        <td class="">Gà</td>
-                        <td class="">Gà</td>
-                        <td class="">
-                            <button class="edit">
-                                <a href="">
-                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                </a>
-                            </button>
-                        </td>
-                        <td class="">
-                            <button class="delete">
-                                <a href="">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                </a>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="content">
-                        <td class=""><input type="checkbox" id="checkbox" onclick="CheckboxFunction()"> </td>
-                        <td class=""> 1 </td>
-                        <td class="">Anh</td>
-                        <td class="">Gà</td>
-                        <td class="">10 000</td>
-                        <td class="">01-01-2022</td>
-                        <td class="">Gà</td>
-                        <td class="">Gà</td>
-                        <td class="">Gà</td>
-                        <td class="">Gà</td>
-                        <td class="">Gà</td>
-                        <td class="">Gà</td>
-                        <td class="">Gà</td>
-                        <td class="">
-                            <button class="edit">
-                                <a href="">
-                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                </a>
-                            </button>
-                        </td>
-                        <td class="">
-                            <button class="delete">
-                                <a href="">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                </a>
-                            </button>
-                        </td>
-                    </tr>
+                    @foreach ($project as $pj)
+                        <tr class="content">
+                            <td class=""><input type="checkbox" id="checkbox"> </td>
+                            <td class=""> 1 </td>
+                            <td class="">{{ $pj->project_name }}</td>
+                            <td class="">{{ $pj->Sale_PIC }}</td>
+                            <td class="">{{ $pj->Market }}</td>
+                            <td class="">{{ $pj->Time_deployment_start }} - {{ $pj->Time_deployment_end }}</td>
+                            <td class=""></td>
+                            <td class=""></td>
+                            <td class=""></td>
+                            <td class=""></td>
+                            <td class=""></td>
+                            <td class=""></td>
+                            <td class="">
+                                @if ($pj->status == 0)
+                                    <p class="process">Đang thực hiện</p>
+                                @else
+                                    <p class="done">Đã hoàn thành</p>
+                                @endif
+                            </td>
+                            <td class="">
+                                <button class="edit" type="button" data-toggle="modal" data-target="#project_edit">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                            <td class="">
+                                <button class="delete">
+                                    <a href="">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
-    <div class="modal fade" id="project" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Thêm dự án</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">
-                    <i class="fa fa-times" aria-hidden="true" style="color: black"></i>
-                </span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <div class="OT">
-                    <div class="box">
-                        <label class="title">
-                            Tên dự án
-                        </label>
-                        <input type="text" class="content">
-                    </div>
-                    <div class="box">
-                        <label class="title" >
-                            Sale PIC
-                        </label>
-                        <input type="text" class="content" placeholder="Nhập tên">
-                    </div>
-                    <div class="box">
-                        <label class="title">
-                            Market
-                        </label>
-                        <input type="text" class="content">
-                    </div>
-                    <div class="box">
-                        <label class="title">
-                            Thời gian triển khai
-                        </label>
-                        <input type="text" class="content">
-                    </div>
-                    <div class="box">
-                        <label class="title">
-                            Trạng thái
-                        </label>
-                        <input type="text" class="content">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancer</button>
-              <button type="button" class="btn btn-primary">Thêm</button>
-            </div>
-          </div>
-        </div>
-      </div>
+        @include('admin.project.add')
+        @include('admin.project.edit')
     </div>
 @endsection

@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="page-title">
+        {{ Form::open(['url' => '/admin/deployment', 'method' => 'GET', 'id' => 'form-deployment']) }}
         <div class="header">
             <select name="value_page" id="value_page">
                 <option value="10">10/page</option>
@@ -10,13 +11,14 @@
                 <option value="25">25/page</option>
             </select>
             <div class="search">
-                <input type="text">
-                <button class="button-search"><a href="#">Tìm kiếm</a></button>
+                <input type="text" value="{{ $searchKey }}" name="searchKey" id="searchKey">
+                <button class="button-search" id="button-search">Tìm kiếm</button>
                 <button class="filter">
                     <i class="fa fa-filter" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
+        {{ Form::close() }}
         <div class="page_action">
             <button class="delete_button" id="delete_button">Xóa</button>
             <button class="add" style="width:180px " type="button" data-toggle="modal" data-target="#deployment">Thêm chi phí triển khai</button>
@@ -41,7 +43,7 @@
                 </thead>
                 <tbody>
                     <tr class="content">
-                        <td class=""><input type="checkbox" id="checkbox" onclick="CheckboxFunction()"> </td>
+                        <td class=""><input type="checkbox" id="checkbox" > </td>
                         <td class=""> 1 </td>
                         <td class="">Anh</td>
                         <td class="">Gà</td>
@@ -68,7 +70,7 @@
                         </td>
                     </tr>
                     <tr class="content">
-                        <td class=""><input type="checkbox" id="checkbox" onclick="CheckboxFunction()"> </td>
+                        <td class=""><input type="checkbox" id="checkbox" > </td>
                         <td class=""> 1 </td>
                         <td class="">Anh</td>
                         <td class="">Gà</td>

@@ -27,7 +27,7 @@ class AuthController extends Controller
     public function index()
     {
         if (Auth::user()) {
-            return redirect('/admin/staffs');
+            return redirect('/admin/staff');
         }
         return view('auth.login');
     }
@@ -45,10 +45,10 @@ class AuthController extends Controller
                 $credentials = [ 'name'=> $request['name'], 'password' => $request['password'] ];
             }
         if (Auth::attempt($credentials)) {
-            if (!Auth::user()->is_active || Auth::user()->status === 'blocked')  {
-                auth()->logout();
-                return redirect()->back()->with('error', 'Invalid username/email or password, try again');
-            }
+            // if (!Auth::user()->is_active || Auth::user()->status === 'blocked')  {
+            //     auth()->logout();
+            //     return redirect()->back()->with('error', 'Invalid username/email or password, try again');
+            // }
 
             Session::put('username', Auth::user());
             Session::put('role_id', Auth::user()->role_id);

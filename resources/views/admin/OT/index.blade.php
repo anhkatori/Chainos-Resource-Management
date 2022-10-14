@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="page-title">
+        {{ Form::open(['url' => '/admin/OT', 'method' => 'GET', 'id' => 'form-OT']) }}
         <div class="header">
             <select name="value_page" id="value_page">
                 <option value="10">10/page</option>
@@ -10,13 +11,14 @@
                 <option value="25">25/page</option>
             </select>
             <div class="search">
-                <input type="text">
-                <button class="button-search"><a href="#">Tìm kiếm</a></button>
+                <input type="text" value="{{ $searchKey }}" name="searchKey" id="searchKey">
+                <button class="button-search" id="button-search">Tìm kiếm</button>
                 <button class="filter">
                     <i class="fa fa-filter" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
+        {{ Form::close() }}
         <div class="page_action">
             <button class="delete_button" id="delete_button">Xóa</button>
             <button class="add" type="button" data-toggle="modal" data-target="#OT">Thêm chi phí OT</button>
@@ -35,98 +37,48 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="content">
-                        <td class=""><input type="checkbox" id="checkbox" onclick="CheckboxFunction()"> </td>
-                        <td class=""> 1 </td>
-                        <td class="">Anh</td>
-                        <td class="">Gà</td>
-                        <td class="">10 000</td>
-                        <td class="">01-01-2022</td>
-                        <td class="">
-                            <button class="edit">
-                                <a href="">
-                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                </a>
-                            </button>
-                        </td>
-                        <td class="">
-                            <button class="delete">
-                                <a href="">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                </a>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="content">
-                        <td class=""><input type="checkbox" id="checkbox" onclick="CheckboxFunction()"> </td>
-                        <td class=""> 1 </td>
-                        <td class="">Anh</td>
-                        <td class="">Gà</td>
-                        <td class="">10 000</td>
-                        <td class="">01-01-2022</td>
-                        <td class="">
-                            <button class="edit">
-                                <a href="">
-                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                </a>
-                            </button>
-                        </td>
-                        <td class="">
-                            <button class="delete">
-                                <a href="">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                </a>
-                            </button>
-                        </td>
-                    </tr>
+                    @foreach ($Ot as $ot)
+                        <tr class="content">
+                            <td class=""><input type="checkbox" id="checkbox"> </td>
+                            <td class=""> 1 </td>
+                            <td class="">{{ $ot->time }}</td>
+                            <td class="">{{ $ot->full_name }}</td>
+                            <td class="">{{ $ot->time_OT }}</td>
+                            <td class="">{{ $ot->OT_cost }}</td>
+                            <td class="">
+                                <button class="edit" type="button" data-toggle="modal" data-target="#OT_edit">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                            <td class="">
+                                <button class="delete">
+                                    <a href="">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
-    <div class="modal fade" id="OT" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Thêm chi phí OT</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">
-                    <i class="fa fa-times" aria-hidden="true" style="color: black"></i>
-                </span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <div class="OT">
-                    <div class="box">
-                        <label class="title">
-                            Thời gian áp dụng lương
-                        </label>
-                        <input type="text" class="content time">
-                    </div>
-                    <div class="box">
-                        <label class="title">
-                            Nhân viên
-                        </label>
-                        <input type="text" class="content">
-                    </div>
-                    <div class="box">
-                        <label class="title">
-                            Số giờ  OT
-                        </label>
-                        <input type="text" class="content">
-                    </div>
-                    <div class="box">
-                        <label class="title">
-                            Chi phí OT
-                        </label>
-                        <input type="text" class="content">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancer</button>
-              <button type="button" class="btn btn-primary">Thêm</button>
-            </div>
-          </div>
-        </div>
-      </div>
+        @include('admin.OT.add')
+        @include('admin.OT.edit')
     </div>
+    <script>
+        $('.add').on('click', function() {
+            $.ajax({
+                method: "get",
+                url: "/admin/OT/add",
+                success: function(data) {
+                    var $select = $('#staff');
+                    $select.empty();
+                    for (var i = 0; i < data.staff.length; i++) {
+                        $select.append('<option value=' + data.staff[i].staff_id + '>' + data.staff[i]
+                            .full_name + '</option>');
+                    }
+                }
+            })
+        })
+    </script>
 @endsection
