@@ -1,0 +1,65 @@
+.table-permission {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top:2%;
+    padding-left:3%;
+    padding-right:3%;
+    gap: 8px;
+}
+
+.table-permission th {
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    width: 294px;
+    height: 40px;
+    left: 48px;
+    top: 209px;
+    background: #E6EBF1;
+    border: 1px solid #D0D4D7;
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #262626;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.table-permission tr:not(:last-child){
+    border-bottom: 1px solid #E6EBF1;
+}
+.table-permission tr td[class="permission-name"] {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 24px 24px;
+    gap: 10px;
+    width: 255px;
+    height: 40px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.table-permission tr td input[type='checkbox'] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    background: #FFFFFF;
+    border-radius: 2px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: auto;
+    vertical-align: center;
+    margin: 16px auto;
+}

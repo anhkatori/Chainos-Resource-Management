@@ -65,3 +65,13 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'], function () {
 Route::get('/admin/Dashboard',function(){
     return view('admin.dashboard.index');
 });
+Route::get('/roles',  [App\Http\Controllers\RoleController::class, 'get_list']);
+Route::get('/roles/render',  [App\Http\Controllers\RoleController::class, 'render_data']);
+Route::get('/roles/search',  [App\Http\Controllers\RoleController::class, 'search']);
+Route::get('/role/edit/{name}',  [App\Http\Controllers\RoleController::class, 'edit']);
+Route::get('/role/del/{id}',  [App\Http\Controllers\RoleController::class, 'destroy']);
+Route::get('/role/insert',  [App\Http\Controllers\RoleController::class, 'insert']);
+Route::get('/role/update',  [App\Http\Controllers\RoleController::class, 'update']);
+// Route::get('/roles/edit', function () {
+//     return view('admin/roles/edit');
+// })->name('role.edit');
