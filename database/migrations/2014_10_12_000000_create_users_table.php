@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('name');
             $table->string('staff_id')->nullable();
             $table->string('code')->nullable();
@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->varchar('avatar', 100)->nullable();
+            // $table->varchar('avatar', 100)->nullable();
             $table->string('phone', 11)->nullable();
             $table->string('gender',1)->nullable();
             $table->integer('annual_leave')->nullable();
