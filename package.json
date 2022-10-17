@@ -16,6 +16,7 @@
         "postcss": "^8.1.14"
     },
     "dependencies": {
-        "@ant-design/icons": "^4.7.0"
+        "@ant-design/icons": "^4.7.0",
+        "debounce": "^1.2.1"
     }
 }

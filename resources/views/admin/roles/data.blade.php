@@ -9,12 +9,13 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $i = 0; ?>
+                <?php $page = $roles->currentPage();
+                $index = ($page - 1) * $roles->perPage(); ?>
                 @foreach ($roles as $role)
-                    <?php $i++; ?>
+                    <?php $index++; ?>
                     <tr class="content">
                         <td><input type="checkbox" id="checkEach" name='checkEach' value="/role/del/{{ $role->id }}"> </td>
-                        <td style="border: 1px solid #E9EDF4" class="text-center">{{ $i }}</td>
+                        <td style="border: 1px solid #E9EDF4" class="text-center">{{ $index }}</td>
                         <td style="border: 1px solid #E9EDF4" class="text-center">{{ $role->display_name }}</td>
                         <td style="border: 1px solid #E9EDF4" class="text-center">
                             <button data-name="{{ $role->name }}" data-display_name="{{ $role->display_name }}"
@@ -29,6 +30,9 @@
         </table>
         <input id="current_page" value={{ $roles->currentPage() }} hidden>
         <div id="pagination_all">
+            {{ $roles->links('pagination::bootstrap-4') }}
+        </div>
+        <div id="pagination_search" class="hidden">
             {{ $roles->links('pagination::bootstrap-4') }}
         </div>
         <div class="text-right">

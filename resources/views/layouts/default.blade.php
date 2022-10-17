@@ -131,6 +131,7 @@
     {{-- <script src="{{asset('assets/js/vendor/chosen/chosen.jquery.min.js')}}"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
     <script src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
+    <script src='{{ asset('assets/js/functions/debounce.js') }}'></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
     <script type="text/javascript"
