@@ -23,11 +23,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            // $table->varchar('avatar', 100)->nullable();
-            $table->string('phone', 11)->nullable();
-            $table->string('gender',1)->nullable();
-            $table->integer('annual_leave')->nullable();
-            $table->tinyInteger('is_active')->nullable();
+            $table->string('phone', 30)->nullable();
+            $table->boolean('gender')->nullable()->default(0); // 0: Male | 1: Female
+            $table->date('birthday')->nullable();
+            $table->boolean('is_active', 1)->nullable()->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
