@@ -20,12 +20,12 @@ class CreateProjectTable extends Migration
             $table->string('Market')->nullable();
             $table->date('Time_deployment_start')->nullable();
             $table->date('Time_deployment_end')->nullable();
-            // $table->string('monthly_cost')->nullable();
-            // $table->string('monthly_revenue')->nullable();
-            // $table->string('deploy_accumulated')->nullable();
-            // $table->string('revenue_accumulated')->nullable();
-            // $table->string('profit_loss')->nullable();
-            // $table->string('rofit_loss_accumulated')->nullable();
+            $table->string('monthly_cost')->nullable();
+            $table->string('monthly_revenue')->nullable();
+            $table->string('deploy_accumulated')->nullable();
+            $table->string('revenue_accumulated')->nullable();
+            $table->string('profit_loss')->nullable();
+            $table->string('rofit_loss_accumulated')->nullable();
             $table->boolean('status')->nullable();
             $table->timestamps();
         });

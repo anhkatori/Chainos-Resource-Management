@@ -1,4 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono|Roboto:400,100,300,500,700,300italic|Roboto+Condensed:300,400,700|Roboto+Slab:400,700&subset=latin,latin-ext);
+/* @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono|Roboto:400,100,300,500,700,300italic|Roboto+Condensed:300,400,700|Roboto+Slab:400,700&subset=latin,latin-ext); */
+@import url(https://fonts.googleapis.com/css2?family=Poppins&display=swap);
 /************************************/
 /************* CALENDAR *************/
 
@@ -1868,7 +1869,7 @@ html.mm-opened #wrap > .row #content { position: fixed; left: 0; padding-right: 
 
 #wrap #content .main { margin: 10px 0; }
 
-body { font-family: "Roboto", "Arial", sans-serif; font-size: 14px; font-weight: 400; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Poppins', sans-serif;; font-size: 14px; font-weight: 400; -webkit-font-smoothing: antialiased; }
 
 body.modal-open { overflow: auto; margin-right: 0; }
 

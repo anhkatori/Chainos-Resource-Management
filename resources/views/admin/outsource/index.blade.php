@@ -21,7 +21,7 @@
         {{ Form::close() }}
         <div class="page_action">
             <button class="delete_button" id="delete_button">Xóa</button>
-            <button class="add" style="width:180px " type="button" data-toggle="modal" data-target="#outsource">Thêm chi
+            <button class="add" style="width:auto " type="button" data-toggle="modal" data-target="#outsource">Thêm chi
                 phí thuê ngoài</button>
         </div>
         <div class="table_box">
@@ -40,7 +40,7 @@
                 <tbody>
                     @foreach ($Outsource as $outsource)
                         <tr class="content">
-                            <td class=""><input type="checkbox" id="checkbox"> </td>
+                            <td class=""><input type="checkbox" id="checkbox" value='{{ $outsource->id }}'> </td>
                             <td class=""> 1 </td>
                             <td class="">{{ $outsource->project_name }}</td>
                             <td class="">{{ $outsource->time }}</td>
@@ -48,7 +48,7 @@
                             <td class="">{{ number_format($outsource->outsource_cost) }}</td>
                             <td class="">
                                 <button class="edit" type="button" data-toggle="modal" data-target="#outsource_edit">
-                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
                                 </button>
                             </td>
                             <td class="">

@@ -10,7 +10,7 @@
     background: #FFFFFF;
     border: 1px solid #E6EBF1;
     border-radius: 12px;
-    font-family: 'Poppins';
+    /* font-family: 'Poppins'; */
     font-style: normal;
 
 }
@@ -151,10 +151,11 @@
     background: red;
     border: 1px solid #E6EBF1;
     border-radius: 10px;
-    color: #D0D4D7;
+    color: #FFFFFF;
     flex: none;
     order: 0;
     flex-grow: 0;
+    cursor: pointer;
 }
 .page-title .page_action .add{
     align-items: center;
@@ -340,4 +341,20 @@
 }
 .modal .modal-content .modal-footer{
     background-color: #FFFFFF !important;
+}
+
+.delete {
+    background-color: red;
+    color: white;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    width: 100px;
+    height: 40px;
+    border: 1px solid #E6EBF1;
+    border-radius: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }

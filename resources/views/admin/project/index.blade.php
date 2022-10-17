@@ -51,7 +51,7 @@
                             <td class="">{{ $pj->project_name }}</td>
                             <td class="">{{ $pj->Sale_PIC }}</td>
                             <td class="">{{ $pj->Market }}</td>
-                            <td class="">{{ $pj->Time_deployment_start }} - {{ $pj->Time_deployment_end }}</td>
+                            <td class="">{{ \Carbon\Carbon::parse($pj->Time_deployment_start)->format('d/m/Y')  }} - {{ \Carbon\Carbon::parse($pj->Time_deployment_end)->format('d/m/Y') }}</td>
                             <td class=""></td>
                             <td class=""></td>
                             <td class=""></td>

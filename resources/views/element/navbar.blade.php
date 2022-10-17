@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="position-left">
+                        <a href="/logout" class="position-left">
                             <img src="#" alt=""> Logout
                         </a>
                     </li>

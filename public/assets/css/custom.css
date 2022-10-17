@@ -1436,6 +1436,10 @@ select.form-control {
     border-radius: 12px;
 }
 
+#content .container .row .box .total {
+    font-weight: 600;
+}
+
 #content .container .row .box>.statistical {
     padding: 28px;
 }

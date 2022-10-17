@@ -25,7 +25,14 @@ Route::get('/reset-password', 'App\Http\Controllers\Auth\AuthController@getReset
 Route::post('/resetPassword', 'App\Http\Controllers\Auth\AuthController@doResetPassword');
 Route::get('/reset/{id}/{code}',  'App\Http\Controllers\Auth\AuthController@showReset');
 Route::post('/reset', 'App\Http\Controllers\Auth\AuthController@doReset');
-Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+Route::group(['middleware' => 'auth','prefix' => 'admin'], function () {
+    Route::get('/roles',  [App\Http\Controllers\RoleController::class, 'get_list']);
+    Route::get('/roles/render',  [App\Http\Controllers\RoleController::class, 'render_data']);
+    Route::get('/roles/search',  [App\Http\Controllers\RoleController::class, 'search']);
+    Route::get('/role/edit/{name}',  [App\Http\Controllers\RoleController::class, 'edit']);
+    Route::get('/role/del/{id}',  [App\Http\Controllers\RoleController::class, 'destroy']);
+    Route::get('/role/insert',  [App\Http\Controllers\RoleController::class, 'insert']);
+    Route::get('/role/update',  [App\Http\Controllers\RoleController::class, 'update']);
     Route::group(['prefix' => 'staff'], function () {
         Route::get('/', [App\Http\Controllers\StaffController::class, 'index']);
         Route::get('/add', 'App\Http\Controllers\StaffController@add');
@@ -69,9 +76,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('/insert',  [App\Http\Controllers\RoleController::class, 'insert']);
         Route::get('/update',  [App\Http\Controllers\RoleController::class, 'update']);
     });
-    
+    Route::get('/Dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 });
 
-Route::get('/admin/Dashboard', function () {
-    return view('admin.dashboard.index');
-});

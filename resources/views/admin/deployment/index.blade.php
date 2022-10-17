@@ -11,7 +11,8 @@
                 <option value="25">25/page</option>
             </select>
             <div class="search">
-                <input type="text" value="{{ $searchKey }}" name="searchKey" id="searchKey">
+                {{-- <input type="text" value="{{ $searchKey }}" name="searchKey" id="searchKey"> --}}
+                <input type="text" value="" name="searchKey" id="searchKey">
                 <button class="button-search" id="button-search">Tìm kiếm</button>
                 <button class="filter">
                     <i class="fa fa-filter" aria-hidden="true"></i>
@@ -21,17 +22,17 @@
         {{ Form::close() }}
         <div class="page_action">
             <button class="delete_button" id="delete_button">Xóa</button>
-            <button class="add" style="width:180px " type="button" data-toggle="modal" data-target="#deployment">Thêm chi phí triển khai</button>
+            <button class="add" style="width:auto " type="button" data-toggle="modal" data-target="#deployment">Thêm chi phí triển khai</button>
         </div>
         <div class="table_box">
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="title"><input type="checkbox" id="checkall"> </th>
+                        <th class="title"><input type="checkbox" id="checkall" > </th>
                         <th class="title"> STT </th>
                         <th class="title">Tên dự án </th>
                         <th class="title">Tháng </th>
-                        <th class="title">Nhân viêni</th>
+                        <th class="title">Nhân viên</th>
                         <th class="title">%effort tháng</th>
                         <th class="title">Chi phí lương tháng</th>
                         <th class="title">Chi phí bảo hiểm tháng    </th>

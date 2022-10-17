@@ -133,18 +133,16 @@
                         <div class="dropdown">
                             <div class="list-project">
                                 <select name="" id="">
-                                    <option value="A">Dự án A</option>
-                                    <option value="B">Dự án B</option>
-                                    <option value="C">Dự án C</option>
+                                    @foreach ($datas as $data)
+                                        <option value="{{ $data->project_name }}">{{ $data->project_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="list-year">
                                 <select name="" id="">
-                                    <option value="2022" selected>2022</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2019">2019</option>
-                                    <option value="2018">2018</option>
+                                    @foreach ($datas as $data)
+                                        <option value="">{{ \Carbon\Carbon::parse($data->Time_deployment_end)->format('Y') }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

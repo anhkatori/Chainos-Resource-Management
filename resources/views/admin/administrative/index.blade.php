@@ -21,7 +21,7 @@
         {{ Form::close() }}
         <div class="page_action">
             <button class="delete_button" id="delete_button">Xóa</button>
-            <button class="add" style="width:180px " type="button" data-toggle="modal"
+            <button class="add" style="width:auto " type="button" data-toggle="modal"
                 data-target="#administrative">Thêm chi phí hành chính</button>
         </div>
         <div class="table_box">
