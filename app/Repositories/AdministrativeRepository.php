@@ -15,4 +15,13 @@ class AdministrativeRepository
             'id' => $id
         ], $data);
     }
+    public function getAdministrativeById($id){
+        $data = Administrative::where('id', $id)->first()->toarray();
+        return $data;
+    }
+    public function update(array $data, $id = null)
+    {
+        $record = Administrative::find($id);
+        return $record->update($data);
+    }
 }

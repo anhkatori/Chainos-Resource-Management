@@ -11,41 +11,42 @@
                 </button>
             </div>
             <div class="modal-body">
-                {{ Form::open(['url' => '/admin/administrative/store']) }}
+                {{ Form::open(['url' => '/admin/administrative/update']) }}
                 @csrf
-                @method('POST')
+                @method('PUT')
                 <div class="OT">
+                    <input type="hidden" name="id" id="id" value="">
                     <div class="box">
                         <label class="title">
                             Tháng
                         </label>
                         <input type="text" class="content time" name="startDate" id="daterangepicker"
-                            startDate="{{ Carbon\Carbon::parse($startDate)->format('d/m/Y') }}"
-                            endDate="{{ Carbon\Carbon::parse($endDate)->format('d/m/Y') }}">
+                        startDate="{{ Carbon\Carbon::parse($startDate)->format('d/m/Y') }}"
+                        endDate="{{ Carbon\Carbon::parse($endDate)->format('d/m/Y') }}">
                     </div>
                     <div class="box">
                         <label class="title">
                             Chi phí văn phòng
                         </label>
-                        <input type="text" class="content" name="office_cost">
+                        <input type="text" class="content" name="office_cost" id="office_cost">
                     </div>
                     <div class="box">
                         <label class="title">
                             Chi phí hành chính khác
                         </label>
-                        <input type="text" class="content" name="other_cost">
+                        <input type="text" class="content" name="other_cost" id="other_cost">
                     </div>
                     <div class="box">
                         <label class="title">
                             Chi phí hành chính nhân sự
                         </label>
-                        <input type="text" class="content" name="staff_cost">
+                        <input type="text" class="content" name="staff_cost" id="staff_cost">
                     </div>
                     <div class="box">
                         <label class="title">
                             Số nhân sự (manmonth):
                         </label>
-                        <input type="text" class="content" name="staffs">
+                        <input type="text" class="content" name="staffs" id="staffs">
                     </div>
                 </div>
                 <div class="modal-footer">

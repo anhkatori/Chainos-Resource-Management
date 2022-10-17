@@ -39,22 +39,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($staffs as $staff)
+                    @foreach ($staffs as $index => $staff)
                         <tr class="content">
-                            <td class=""><input type="checkbox" id="checkbox"> </td>
-                            <td class=""> 1 </td>
-                            <td class="">{{ $staff->full_name }}</td>
-                            <td class="">{{ $staff->typename }}</td>
-                            <td class="">{{ $staff->salary }}</td>
-                            <td class="">{{ $staff->time_salary }}</td>
-                            <td class="">{{ $staff->insurance }}</td>
-                            <td class="">{{ $staff->time_insurance }}</td>
-                            <td class="">
+                            <td><input type="checkbox" id="checkbox"> </td>
+                            <td> {{ $index + 1}} </td>
+                            <td>{{ $staff->full_name }}</td>
+                            <td>{{ $staff->typename }}</td>
+                            <td>{{ $staff->salary }}</td>
+                            <td>{{ $staff->time_salary }}</td>
+                            <td>{{ $staff->insurance }}</td>
+                            <td>{{ $staff->time_insurance }}</td>
+                            <td>
                                 <button class="edit" type="button" data-toggle="modal" data-target="#edit_user">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                 </button>
                             </td>
-                            <td class="">
+                            <td>
                                 <button class="delete">
                                     <a href="">
                                         <i class="fa fa-trash-o" aria-hidden="true"></i>

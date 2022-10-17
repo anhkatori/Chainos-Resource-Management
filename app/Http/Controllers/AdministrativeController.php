@@ -39,6 +39,7 @@ class AdministrativeController extends Controller
     public function store(Request $request){
         $data = $request->except(['startDate']);
         $data['time'] = Utils::formatStartDateForStaff($request->startDate);
+        dd($data);
         try {
             DB::beginTransaction();
             $this->administrativeRepository->updateOrCreate($data);
@@ -46,6 +47,25 @@ class AdministrativeController extends Controller
             return Redirect::back();
         } catch (Exception $e) {
             // DB::rollback();
+            return Redirect::back()->with('e', $e);
+        }
+    }
+    public function edit($id){
+        $getData = $this->administrativeRepository->getAdministrativeById($id);
+        return response()->json($getData);
+    }
+    public function update(Request $request){
+        $data = $request->except(['startDate','id']);
+        $id = $request->id;
+        // $data['time'] = Utils::formatStartDateForStaff($request->startDate);
+        // dd($data);
+        try {
+            DB::beginTransaction();
+            $this->administrativeRepository->update($data,$id);
+            DB::commit();
+            return Redirect::back();
+        } catch (Exception $e) {
+            DB::rollback();
             return Redirect::back()->with('e', $e);
         }
     }

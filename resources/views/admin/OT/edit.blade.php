@@ -11,10 +11,11 @@ aria-hidden="true">
             </button>
         </div>
         <div class="modal-body">
-            {{ Form::open(['url' => '/admin/OT/store']) }}
+            {{ Form::open(['url' => '/admin/OT/update']) }}
             @csrf
-            @method('POST')
+            @method('PUT')
             <div class="OT">
+                <input type="hidden" name="id" id="id" value="">
                 <div class="box">
                     <label class="title">
                         Tháng
@@ -27,19 +28,19 @@ aria-hidden="true">
                     <label class="title">
                         Nhân viên
                     </label>
-                    <select id="staff" class="content" name="staff_id"></select>
+                    <select id="staff_edit" class="content" name="staff_id"></select>
                 </div>
                 <div class="box">
                     <label class="title">
                         Số giờ OT
                     </label>
-                    <input type="text" class="content" name="time_OT">
+                    <input type="text" class="content" name="time_OT" id="time_OT">
                 </div>
                 <div class="box">
                     <label class="title">
                         Chi phí OT
                     </label>
-                    <input type="text" class="content" name="OT_cost">
+                    <input type="text" class="content" name="OT_cost" id="OT_cost">
                 </div>
             </div>
             <div class="modal-footer">

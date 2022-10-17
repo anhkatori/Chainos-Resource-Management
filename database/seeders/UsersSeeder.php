@@ -23,6 +23,7 @@ class UsersSeeder extends Seeder
         $faker = Faker::create('vi_VN');
         DB::table('users')->insert([
             'name' => 'admin',
+            'full_name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('12345678'),
         ]);

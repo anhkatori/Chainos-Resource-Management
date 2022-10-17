@@ -42,15 +42,21 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'], function () {
         Route::get('/', [App\Http\Controllers\OTController::class, 'index']);
         Route::get('/add', [App\Http\Controllers\OTController::class, 'add']);
         Route::post('/store', [App\Http\Controllers\OTController::class, 'store']);
+        Route::get('/edit/{id}', [App\Http\Controllers\OTController::class, 'edit']);
+        Route::put('/update', [App\Http\Controllers\OTController::class, 'update']);
     });
     Route::group(['prefix' => 'administrative'], function () {
         Route::get('/', [App\Http\Controllers\AdministrativeController::class, 'index']);
         Route::post('/store', [App\Http\Controllers\AdministrativeController::class, 'store']);
+        Route::get('/edit/{id}', [App\Http\Controllers\AdministrativeController::class, 'edit']);
+        Route::put('/update', [App\Http\Controllers\AdministrativeController::class, 'update']);
     });
     Route::group(['prefix' => 'outsource'], function () {
         Route::get('/', [App\Http\Controllers\OutsourceController::class, 'index']);
         Route::get('/add', [App\Http\Controllers\OutsourceController::class, 'add']);
         Route::post('/store', [App\Http\Controllers\OutsourceController::class, 'store']);
+        Route::get('/edit/{id}', [App\Http\Controllers\OutsourceController::class, 'edit']);
+        Route::put('/update', [App\Http\Controllers\OutsourceController::class, 'update']);
     });
     Route::group(['prefix' => 'deployment'], function () {
         Route::get('/', function () {
@@ -78,4 +84,3 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'], function () {
     });
     Route::get('/Dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 });
-

@@ -27,4 +27,13 @@ class OTRepository
             'id' => $id
         ], $data);
     }
+    public function getOTById($id){
+        $data = OT::where('id', $id)->first()->toarray();
+        return $data;
+    }
+    public function update(array $data, $id = null)
+    {
+        $record = OT::find($id);
+        return $record->update($data);
+    }
 }

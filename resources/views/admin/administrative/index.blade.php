@@ -41,26 +41,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($administrative as $admi)
+                    @foreach ($administrative as $index => $adminis)
                         <tr class="content">
-                            <td class=""><input type="checkbox" id="checkbox"> </td>
-                            <td class=""> 1 </td>
-                            <td class="">{{ $admi->time }}</td>
-                            <td class="">{{ number_format($admi->office_cost) }}</td>
-                            <td class="">{{ number_format($admi->other_cost) }}</td>
-                            <td class="">{{ number_format($admi->staff_cost) }}</td>
-                            <td class="">{{ number_format($admi->sum) }}</td>
-                            <td class="">{{ number_format($admi->staffs) }}</td>
-                            <td class="">{{ number_format($admi->average) }}</td>
-                            <td class="">
-                                <button class="edit" value="{{ $admi->id }}" type="button" data-toggle="modal"
-                                data-target="#administrative_edit">
-                                {{-- <input name="id" id="id" value="{{ $admi->id }}" hidden> --}}
-
+                            <td><input type="checkbox" id="checkbox"> </td>
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $adminis->time }}</td>
+                            <td>{{ number_format($adminis->office_cost) }}</td>
+                            <td>{{ number_format($adminis->other_cost) }}</td>
+                            <td>{{ number_format($adminis->staff_cost) }}</td>
+                            <td>{{ number_format($adminis->sum) }}</td>
+                            <td>{{ number_format($adminis->staffs) }}</td>
+                            <td>{{ number_format($adminis->average) }}</td>
+                            <td>
+                                <button class="edit" type="button" data-toggle="modal"
+                                data-target="#administrative_edit" data-id="{{ $adminis->id }}">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                 </button>
                             </td>
-                            <td class="">
+                            <td>
                                 <button class="delete">
                                     <a href="">
                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -77,20 +75,23 @@
     </div>
     <script>
         $('.edit').on('click', function() {
-            var id = $('.edit').val();
-            console.log(id);
-            // $.ajax({
-            //     method: "get",
-            //     url: "/admin/OT/add",
-            //     success: function(data) {
-            //         var $select = $('#staff');
-            //         $select.empty();
-            //         for (var i = 0; i < data.staff.length; i++) {
-            //             $select.append('<option value=' + data.staff[i].staff_id + '>' + data.staff[i]
-            //                 .full_name + '</option>');
-            //         }
-            //     }
-            // })
+            var id = $(this).attr("data-id");
+            var time = $(this).attr("data-start");
+            console.log(time)
+            $.ajax({
+                method: "get",
+                url: "/admin/administrative/edit/" + id,
+                success: function(data) {
+                    console.log(data);
+                    $('#office_cost').val(data.office_cost);
+                    // $(this).attr("data-start").val(data.time);
+                    $('#other_cost').val(data.other_cost);
+                    $('#staff_cost').val(data.staff_cost);
+                    $('#staffs').val(data.staffs);
+                    $('#id').val(id);
+                }
+            })
         })
+
     </script>
 @endsection

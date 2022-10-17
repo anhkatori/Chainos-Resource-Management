@@ -49,4 +49,22 @@ class OTController extends Controller
             return Redirect::back()->with('error', __('teams.Create error'));
         }
     }
+    public function edit($id){
+        $getData = $this->OTRepository->getOTById($id);
+        $staff = DB::table('users')->get()->toArray();
+        return response()->json(['ot' => $getData , 'staff' => $staff]);
+    }
+    public function update(Request $request){
+        $data = $request->except(['startDate','id']);
+        $id = $request->id;
+        try {
+            DB::beginTransaction();
+            $this->OTRepository->update($data,$id);
+            DB::commit();
+            return Redirect::back();
+        } catch (Exception $e) {
+            DB::rollback();
+            return Redirect::back()->with('e', $e);
+        }
+    }
 }

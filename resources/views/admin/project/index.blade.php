@@ -46,31 +46,31 @@
                 <tbody>
                     @foreach ($project as $pj)
                         <tr class="content">
-                            <td class=""><input type="checkbox" id="checkbox"> </td>
-                            <td class=""> 1 </td>
-                            <td class="">{{ $pj->project_name }}</td>
-                            <td class="">{{ $pj->Sale_PIC }}</td>
-                            <td class="">{{ $pj->Market }}</td>
-                            <td class="">{{ \Carbon\Carbon::parse($pj->Time_deployment_start)->format('d/m/Y')  }} - {{ \Carbon\Carbon::parse($pj->Time_deployment_end)->format('d/m/Y') }}</td>
-                            <td class=""></td>
-                            <td class=""></td>
-                            <td class=""></td>
-                            <td class=""></td>
-                            <td class=""></td>
-                            <td class=""></td>
-                            <td class="">
+                            <td><input type="checkbox" id="checkbox"> </td>
+                            <td> 1 </td>
+                            <td>{{ $pj->project_name }}</td>
+                            <td>{{ $pj->Sale_PIC }}</td>
+                            <td>{{ $pj->Market }}</td>
+                            <td>{{ \Carbon\Carbon::parse($pj->Time_deployment_start)->format('d/m/Y')  }} - {{ \Carbon\Carbon::parse($pj->Time_deployment_end)->format('d/m/Y') }}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
                                 @if ($pj->status == 0)
                                     <p class="process">Đang thực hiện</p>
                                 @else
                                     <p class="done">Đã hoàn thành</p>
                                 @endif
                             </td>
-                            <td class="">
+                            <td>
                                 <button class="edit" type="button" data-toggle="modal" data-target="#project_edit">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                 </button>
                             </td>
-                            <td class="">
+                            <td>
                                 <button class="delete">
                                     <a href="">
                                         <i class="fa fa-trash-o" aria-hidden="true"></i>

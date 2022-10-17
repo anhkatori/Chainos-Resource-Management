@@ -39,21 +39,21 @@
                 </thead>
                 <tbody>
                     <tr class="content">
-                        <td class=""><input type="checkbox" id="checkbox"> </td>
-                        <td class=""> 1 </td>
-                        <td class="">Anh</td>
-                        <td class="">Gà</td>
-                        <td class="">10 000</td>
-                        <td class="">01-01-2022</td>
-                        <td class="">Gà</td>
-                        <td class="">
+                        <td><input type="checkbox" id="checkbox"> </td>
+                        <td> 1 </td>
+                        <td>Anh</td>
+                        <td>Gà</td>
+                        <td>10 000</td>
+                        <td>01-01-2022</td>
+                        <td>Gà</td>
+                        <td>
                             <button class="edit">
                                 <a href="">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                 </a>
                             </button>
                         </td>
-                        <td class="">
+                        <td>
                             <button class="delete">
                                 <a href="">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -62,21 +62,21 @@
                         </td>
                     </tr>
                     <tr class="content">
-                        <td class=""><input type="checkbox" id="checkbox"> </td>
-                        <td class=""> 1 </td>
-                        <td class="">Anh</td>
-                        <td class="">Gà</td>
-                        <td class="">10 000</td>
-                        <td class="">01-01-2022</td>
-                        <td class="">Gà</td>
-                        <td class="">
+                        <td><input type="checkbox" id="checkbox"> </td>
+                        <td> 1 </td>
+                        <td>Anh</td>
+                        <td>Gà</td>
+                        <td>10 000</td>
+                        <td>01-01-2022</td>
+                        <td>Gà</td>
+                        <td>
                             <button class="edit">
                                 <a href="">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                 </a>
                             </button>
                         </td>
-                        <td class="">
+                        <td>
                             <button class="delete">
                                 <a href="">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>

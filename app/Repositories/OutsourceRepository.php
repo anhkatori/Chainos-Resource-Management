@@ -8,6 +8,7 @@ class OutsourceRepository
 {
     public function getOutsource($searchKey){
         $data = Outsource::select(
+            "outsource_cost.id",
             "outsource_cost.time",
             "outsource_cost.outsource_cost",
             "users.full_name",
@@ -29,5 +30,14 @@ class OutsourceRepository
         return Outsource::updateOrCreate([
             'id' => $id
         ], $data);
+    }
+    public function getOutsourceById($id){
+        $data = Outsource::where('id', $id)->first()->toarray();
+        return $data;
+    }
+    public function update(array $data, $id = null)
+    {
+        $record = Outsource::find($id);
+        return $record->update($data);
     }
 }

@@ -38,20 +38,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($Outsource as $outsource)
+                    @foreach ($Outsource as $index => $outsource)
                         <tr class="content">
-                            <td class=""><input type="checkbox" id="checkbox" value='{{ $outsource->id }}'> </td>
-                            <td class=""> 1 </td>
-                            <td class="">{{ $outsource->project_name }}</td>
-                            <td class="">{{ $outsource->time }}</td>
-                            <td class="">{{ $outsource->full_name }}</td>
-                            <td class="">{{ number_format($outsource->outsource_cost) }}</td>
-                            <td class="">
-                                <button class="edit" type="button" data-toggle="modal" data-target="#outsource_edit">
+                            <td><input type="checkbox" id="checkbox" value='{{ $outsource->id }}'> </td>
+                            <td>{{ $index +1 }} </td>
+                            <td>{{ $outsource->project_name }}</td>
+                            <td>{{ $outsource->time }}</td>
+                            <td>{{ $outsource->full_name }}</td>
+                            <td>{{ number_format($outsource->outsource_cost) }}</td>
+                            <td>
+                                <button class="edit" type="button" data-toggle="modal" data-target="#outsource_edit" data-id="{{ $outsource->id }}">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
-                                </button>
-                            </td>
-                            <td class="">
+                            <td>
                                 <button class="delete">
                                     <a href="">
                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -84,6 +82,31 @@
                         $project.append('<option value=' + data.project[i].id + '>' + data.project[i]
                             .project_name + '</option>');
                     }
+                }
+            })
+        })
+        $('.edit').on('click', function() {
+            var id = $(this).attr("data-id");
+            console.log(id)
+            $.ajax({
+                method: "get",
+                url: "/admin/outsource/edit/" + id,
+                success: function(data) {
+                    console.log(data.outsource);
+                    var $select = $('#staff_edit');
+                    $select.empty();
+                    for (var i = 0; i < data.staff.length; i++) {
+                        $select.append('<option value=' + data.staff[i].staff_id + '>' + data.staff[i]
+                            .full_name + '</option>');
+                    }
+                    var $project = $('#project_name_edit');
+                    $project.empty();
+                    for (var i = 0; i < data.project.length; i++) {
+                        $project.append('<option value=' + data.project[i].id + '>' + data.project[i]
+                            .project_name + '</option>');
+                    }
+                    $('#outsource_cost').val(data.outsource.outsource_cost);
+                    $('#id').val(id);
                 }
             })
         })

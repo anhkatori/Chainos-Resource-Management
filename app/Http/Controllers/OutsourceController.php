@@ -25,7 +25,6 @@ class OutsourceController extends Controller
             $endDate = Utils::formatEndDateForStaff($request->startDate);
         }
         $Outsource = $this->outsourceRepository->getOutsource($searchKey);
-        // dd($Outsource);
         return view('admin.outsource.index', compact(
             'Outsource',
             'searchKey',
@@ -49,6 +48,25 @@ class OutsourceController extends Controller
         } catch (Exception $e) {
             DB::rollback();
             return Redirect::back()->with('error', __('teams.Create error'));
+        }
+    }
+    public function edit($id){
+        $outsource = $this->outsourceRepository->getOutsourceById($id);
+        $project = DB::table('project')->get()->toArray();
+        $staff = DB::table('users')->get()->toArray();
+        return response()->json(['staff' => $staff,'project' => $project,'outsource' => $outsource]);
+    }
+    public function update(Request $request){
+        $data = $request->except(['startDate','id']);
+        $id = $request->id;
+        try {
+            DB::beginTransaction();
+            $this->outsourceRepository->update($data,$id);
+            DB::commit();
+            return Redirect::back();
+        } catch (Exception $e) {
+            DB::rollback();
+            return Redirect::back()->with('e', $e);
         }
     }
 }
